@@ -1,0 +1,4 @@
+recovery_only(`
+  permissive recovery;
+  permissive init;
+')
