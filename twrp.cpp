@@ -290,6 +290,8 @@ static void process_recovery_mode(twrpAdbBuFifo* adb_bu_fifo, bool skip_decrypti
 
 static void reboot() {
 	gui_msg(Msg("rebooting=Rebooting..."));
+    //Samsung Galaxy Snapdragon Android 11, this fixes a reboot to system issue that boots back into
+    TWFunc::Exec_Cmd("dd if=/dev/zero of=/dev/block/by-name/misc bs=256 count=1 conv=notrunc");
 	TWFunc::Update_Log_File();
 	string Reboot_Arg;
 
